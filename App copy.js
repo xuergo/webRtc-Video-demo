@@ -212,6 +212,9 @@ export default function App() {
     statsIntervalId.current = setInterval(async () => {
       if (!peerConnection.current) return;
       const stats = await peerConnection.current.getStats(event.track);
+      // console.log('====================================');
+      // console.log(stats);
+      // console.log('====================================');
       stats.forEach((report) => {
         if (report.type === "inbound-rtp" && report.mediaType === "video") {
           const videoStatusChanged =
